@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+// Define the User model
+model User {
+  id        String   @id @default(uuid()) // Use cuid() for unique string IDs
+  name      String?
+  username  String   @unique
+  email     String   @unique
+  password  String
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relation to Token model (one-to-many)
+  tokens       Token?
+  UserSettings UserSettings?
+  Category     Category?
+  Transaction  Transaction?
+  MonthHistory MonthHistory?
+  YearHistory  YearHistory?
+}
+
+// Define the Token model
+model Token {
+  id        String   @id @default(cuid()) // Use cuid() for unique string IDs
+  userId    String   @unique
+  token     String   @unique
+  createdAt DateTime @default(now())
+
+  // Relation to User model (many-to-one)
+  user User? @relation(fields: [userId], references: [id])
+}
+
+// Define user settings model
+model UserSettings {
+  id       String @id @default(cuid()) 
+  userId   String @unique
+  currency String
+  user     User?   @relation(fields: [userId], references: [id])
+}
+
+// Define Category model
+model Category {
+  id        String @id() @default(cuid())
+  createdAt DateTime @default(now())
+  name      String
+  userId    String   @unique
+  icon      String
+  type      String   @default("income")
+  user      User?     @relation(fields: [userId], references: [id])
+
+  @@unique([name, userId, type])
+}
+
+// Define Transaction model
+model Transaction {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+
+  amount      Float
+  description String
+  date        DateTime
+  userId      String   @unique
+  type        String   @default("income")
+
+  category     String
+  categoryIcon String
+  user         User?   @relation(fields: [userId], references: [id])
+}
+
+// Define Month history model
+model MonthHistory {
+  userId  String  @unique
+  day     Int
+  month   Int
+  year    Int
+  income  Float
+  expense Float
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@id([day, month, year, userId])
+}
+
+// Define Year history model
+model YearHistory {
+  userId  String @unique
+  month   Int
+  year    Int
+  income  Float
+  expense Float
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@id([month, year, userId])
+}
+
