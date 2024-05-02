@@ -4,32 +4,10 @@ import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "./prisma";
 import { isPasswordValid } from "@/lib/hash";
-import { NextResponse } from "next/server";
 
 import {
   NextAuthOptions,
-  type DefaultSession,
-  type DefaultUser,
 } from "next-auth";
-import { userType } from "@/types/authTypes";
-
-declare module "next-auth" {
-  interface Session extends DefaultSession {
-    user: DefaultSession["user"] & {
-      id: string;
-      username: string;
-      role: string;
-      active: string;
-    };
-  }
-
-  interface User extends DefaultUser {
-    id: string;
-    role: string;
-    username: string;
-    active: string;
-  }
-}
 
 export const AuthOptions: NextAuthOptions = {
   providers: [
@@ -84,7 +62,7 @@ export const AuthOptions: NextAuthOptions = {
         userExists = await prisma.user.findFirst({ where: { email: user?.email as string } })
 
         if (userExists === null) {
-          newUser = await prisma.user.create({ data: { name: user.name, email: user.email } })
+          newUser = await prisma.user.create({ data: { name: user.name!, email: user.email!, username: user.name!, password: user.id } })
         } else {
           newUser = userExists;
         }
@@ -96,8 +74,7 @@ export const AuthOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       // Send properties to the client, like an access_token and user id from a provider.
-      let user: userType = token.user as userType;
-      session.user = user;
+      session.user = token.user as any;
       return session;
     },
   },

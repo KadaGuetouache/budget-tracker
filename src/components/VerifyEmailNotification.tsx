@@ -27,31 +27,7 @@ const VerifyEmailNotification = () => {
     });
   };
 
-  if (session?.user) {
-    return (
-      <div
-        className={cn(
-          "relative shadow-sm shadow-blue-500 bg-background w-full h-[50px] justify-center items-center",
-          `${!session?.user?.verified ? "flex" : "hidden"}`,
-        )}
-      >
-        <p className="text-center">
-          Welcome abroad! To get started, head over to your inbox and verify
-          your email address. We sent you a quick email to confirm it&apos;s
-          really you
-        </p>
-        <Button
-          size="sm"
-          className="ml-4"
-          onClick={() => onResendVerificationEmail()}
-        >
-          Re-send email
-        </Button>
-      </div>
-    );
-  } else {
-    return;
-  }
+  return <div></div>
 };
 
 export default VerifyEmailNotification;
