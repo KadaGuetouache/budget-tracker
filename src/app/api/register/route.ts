@@ -2,11 +2,12 @@ import { NextResponse } from "next/server";
 import { sendVerificationEmail } from "@/lib/sendMail";
 import prisma from "@/lib/prisma";
 import { tokenGenerator } from "@/lib/helpers";
+import { hashPassword } from "@/lib/hash";
 
 
 export async function POST(request: Request) {
   const data = await request.json();
-  const { email, name, username, hashedPassword, url } = data.data;
+  const { email, name, username, password } = data.data;
 
   try {
 
@@ -28,6 +29,7 @@ export async function POST(request: Request) {
   }
 
   try {
+    const hashedPassword = await hashPassword(password)
     const user = await prisma.user.create({
       data: {
         email,
@@ -45,7 +47,7 @@ export async function POST(request: Request) {
     })
 
     // Send email
-    sendVerificationEmail(user, token.token, url);
+    sendVerificationEmail(user, token.token, process.env.NEXTAUTH_URL!);
 
     return NextResponse.json(user);
   } catch (error: any) {

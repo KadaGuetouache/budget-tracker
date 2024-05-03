@@ -13,6 +13,7 @@ export default async function middleware(req: NextRequestWithAuth, event: any) {
   // redirect to the home page
   if (
     (req.nextUrl.pathname.startsWith("/login") ||
+      req.nextUrl.pathname.startsWith("/") ||
       req.nextUrl.pathname.startsWith("/register") ||
       req.nextUrl.pathname.startsWith("/forgot-password")) &&
     isAuthenticated
@@ -22,7 +23,6 @@ export default async function middleware(req: NextRequestWithAuth, event: any) {
 
   // if the user is not authenticated, allow them to visit the auth pages
   if (
-    req.nextUrl.pathname.startsWith("/") ||
     req.nextUrl.pathname.startsWith("/login") ||
     req.nextUrl.pathname.startsWith("/register") ||
     req.nextUrl.pathname.startsWith("/forgot-password")

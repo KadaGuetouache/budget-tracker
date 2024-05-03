@@ -53,9 +53,7 @@ const RegisterForm = ({ className }: { className: string }) => {
   const onSubmit = (values: registerFormType) => {
     startTransition(async () => {
       const { email, name, username, password } = values;
-      const hashedPassword = await hashPassword(password);
-      const url = getURL()
-      const data = { email, name, username, hashedPassword, url };
+      const data = { email, name, username, password };
 
       try {
         await axios.post("/api/register", { data });

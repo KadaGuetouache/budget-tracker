@@ -3,6 +3,7 @@ import React from "react";
 import NavLinks from "./NavLinks";
 import VerifyEmailNotification from "./VerifyEmailNotification";
 import { Suspense } from "react";
+import { BullHornIcon } from "@/constants/icons";
 
 const Navbar = () => {
   return (
@@ -10,12 +11,11 @@ const Navbar = () => {
       <Suspense fallback={<div></div>}>
         <VerifyEmailNotification />
       </Suspense>
-      <header className="flex justify-between items-center h[10%] px-8 py-4">
+      <header className="flex justify-between items-center h[10%] px-8 py-4 relative bg-background">
         <div>
-          <Link href="/">
-            <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-500 font-bold text-4xl">
-              Next Auth
-            </h1>
+          <Link href="/" className="flex justify-center items-center">
+            <BullHornIcon className="w-7 h-7 text-amber-500" />
+            <span className="ml-1 font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">BudgetTracker</span>
           </Link>
         </div>
         <nav className="gap-2">

@@ -62,6 +62,14 @@ const LoginForm = () => {
       })
 
     } catch (error: any) {
+      console.log(error.response.data)
+      if (error.response.data.includes("constraint failed on the fields")) {
+        return toast({
+          title: "Something went wrong!",
+          description: "You can only send one token at a time",
+          variant: "destructive",
+        })
+      }
       toast({
         title: "Something went wrong!",
         description: error.response.data,
