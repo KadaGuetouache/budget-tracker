@@ -1,8 +1,13 @@
+import Navbar from '@/components/Navbar'
 import React, { PropsWithChildren } from 'react'
 
 const layout = ({ children }: PropsWithChildren) => {
   return (
-    <div>{children}</div>
+    <div className="relative flex h-screen w-full flex-col">
+      <div className="w-full">
+        {children}
+      </div>
+    </div>
   )
 }
 

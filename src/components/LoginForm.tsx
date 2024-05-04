@@ -27,8 +27,6 @@ import { passwordForgottenTypes } from "@/types/formTypes";
 import { ReSendVerificationEmail } from "@/action/authentication";
 import { getURL } from "@/lib/helpers";
 import { useSearchParams } from "next/navigation";
-import { sendVerificationEmail } from "@/lib/sendMail";
-
 const LoginForm = () => {
   const tokenInvalid = useSearchParams().get("invalid")
   const [resendTokenDialog, setResendTokenDialog] = useState<boolean>(false)
@@ -135,13 +133,14 @@ const LoginForm = () => {
           variant: "destructive",
         });
       } else {
-        router.push("/dashboard");
+        router.push("/");
       }
     });
+
   };
 
   return (
-    <div className="flex-1">
+    <div className="flex-1 w-full">
       <Dialog open={resendTokenDialog} onOpenChange={() => setResendTokenDialog(!resendTokenDialog)}>
         <DialogContent>
           <Form {...passwordForgottenForm}>

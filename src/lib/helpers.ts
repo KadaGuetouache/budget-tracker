@@ -26,3 +26,8 @@ export function checkIfTokenIsValide(timestamp: Date): Boolean {
   // Check if the difference is less than 24 hours in milliseconds
   return difference < (24 * 60 * 60 * 1000);
 }
+//
+// Check for active link
+export function activeLink(pathname: string, path: string): string {
+  return path === pathname ? "border-b border-white" : "text-muted-foreground"
+}

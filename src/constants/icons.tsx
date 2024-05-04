@@ -1,6 +1,7 @@
 type classNameProps = {
   className?: string;
 };
+
 export const FacebookIcon = ({ className = "w-4 h-4" }: classNameProps) => {
   return (
     <svg
@@ -174,6 +175,77 @@ export const BullHornIcon = ({ className = "w-5 h-5" }: classNameProps) => {
       <path
         stroke="none"
         d="M73.813 39.28c70.517 36.34 49.052 103.816 8.374 138.22-88.595 74.925-82.78 199.22 48.25 244.563-10.524-32.924-9.554-66.272 2.063-99.063-30.195-25.72-38.378-63.247 11.906-135.656 30.388-43.758 23.922-140.87-70.594-148.063zm361.5 0c-94.516 7.193-100.982 104.306-70.594 148.064 47.774 68.795 42.742 106.107 16.217 131.72 7.033 17.736 12.06 35.84 13.282 54.467.963 14.702-.57 29.68-5.25 44.72 120.973-48.166 124.15-167.84 37.936-240.75-40.677-34.404-62.11-101.88 8.406-138.22zm-79.875 268.345c-66.123 9.62-131.398 17.49-196.22.688-23.464 45.56-24.194 89.256.47 134.656 65.572-6.135 131.11-5.805 196.593.06 15.795-23.503 20.762-45.73 19.283-68.28-1.44-21.957-9.355-44.356-20.125-67.125z"
+      ></path>
+    </svg>
+  );
+};
+
+export const MoonIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M9.822 2.238a9 9 0 0011.94 11.94C20.768 18.654 16.775 22 12 22 6.477 22 2 17.523 2 12c0-4.775 3.346-8.768 7.822-9.762zm8.342.053L19 2.5v1l-.836.209a2 2 0 00-1.455 1.455L16.5 6h-1l-.209-.836a2 2 0 00-1.455-1.455L13 3.5v-1l.836-.209A2 2 0 0015.29.836L15.5 0h1l.209.836a2 2 0 001.455 1.455zm5 5L24 7.5v1l-.836.209a2 2 0 00-1.455 1.455L21.5 11h-1l-.209-.836a2 2 0 00-1.455-1.455L18 8.5v-1l.836-.209a2 2 0 001.455-1.455L20.5 5h1l.209.836a2 2 0 001.455 1.455z"></path>
+    </svg>
+  );
+};
+
+export const SunIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 16 16"
+      className={className}
+    >
+      <path d="M8 11a3 3 0 110-6 3 3 0 010 6m0 1a4 4 0 100-8 4 4 0 000 8M8 0a.5.5 0 01.5.5v2a.5.5 0 01-1 0v-2A.5.5 0 018 0m0 13a.5.5 0 01.5.5v2a.5.5 0 01-1 0v-2A.5.5 0 018 13m8-5a.5.5 0 01-.5.5h-2a.5.5 0 010-1h2a.5.5 0 01.5.5M3 8a.5.5 0 01-.5.5h-2a.5.5 0 010-1h2A.5.5 0 013 8m10.657-5.657a.5.5 0 010 .707l-1.414 1.415a.5.5 0 11-.707-.708l1.414-1.414a.5.5 0 01.707 0m-9.193 9.193a.5.5 0 010 .707L3.05 13.657a.5.5 0 01-.707-.707l1.414-1.414a.5.5 0 01.707 0m9.193 2.121a.5.5 0 01-.707 0l-1.414-1.414a.5.5 0 01.707-.707l1.414 1.414a.5.5 0 010 .707M4.464 4.465a.5.5 0 01-.707 0L2.343 3.05a.5.5 0 11.707-.707l1.414 1.414a.5.5 0 010 .708"></path>
+    </svg>
+  );
+};
+
+export const DesktopIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M18.435 3.065H5.565a2.5 2.5 0 00-2.5 2.5v8.87a2.5 2.5 0 002.5 2.5h2.91l-.37 3H7a.5.5 0 000 1h10.01a.5.5 0 000-1H15.9l-.37-3h2.91a2.5 2.5 0 002.5-2.5v-8.87a2.5 2.5 0 00-2.505-2.5zm-9.33 16.87l.38-3h5.03l.37 3zm10.83-5.5a1.5 1.5 0 01-1.5 1.5H5.565a1.5 1.5 0 01-1.5-1.5v-.5h15.87zm0-1.5H4.065v-7.37a1.5 1.5 0 011.5-1.5h12.87a1.5 1.5 0 011.5 1.5z"></path>
+    </svg>
+  );
+};
+
+export const MenuIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path
+        stroke="none"
+        d="M3 4h18v2H3V4zm6 7h12v2H9v-2zm-6 7h18v2H3v-2z"
       ></path>
     </svg>
   );

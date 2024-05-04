@@ -1,27 +1,29 @@
-import Link from "next/link";
 import React from "react";
-import NavLinks from "./NavLinks";
 import VerifyEmailNotification from "./VerifyEmailNotification";
 import { Suspense } from "react";
-import { BullHornIcon } from "@/constants/icons";
+import DesktopNavbar from "./DesktopNavbar";
+import MobileNavbar from "./MobileNavbar";
+import { AuthOptions } from "@/lib/authOptions";
+import { getServerSession } from "next-auth/next";
+import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getServerSession(AuthOptions)
+
   return (
     <>
       <Suspense fallback={<div></div>}>
         <VerifyEmailNotification />
       </Suspense>
-      <header className="flex justify-between items-center h[10%] px-8 py-4 relative bg-background">
-        <div>
-          <Link href="/" className="flex justify-center items-center">
-            <BullHornIcon className="w-7 h-7 text-amber-500" />
-            <span className="ml-1 font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">BudgetTracker</span>
-          </Link>
+      <header className="border-b justify-between flex items-center h[10%] px-8 relative bg-background" >
+        <Logo />
+        <div className="flex justify-center items-center">
+          <ThemeToggle className="md:mr-4" />
+          <DesktopNavbar status={session !== null ? true : false} />
+          <MobileNavbar status={session !== null ? true : false} />
         </div>
-        <nav className="gap-2">
-          <NavLinks />
-        </nav>
-      </header>
+      </header >
     </>
   );
 };
