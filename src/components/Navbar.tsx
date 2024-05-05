@@ -10,7 +10,6 @@ import Logo from "./Logo";
 
 const Navbar = async () => {
   const session = await getServerSession(AuthOptions)
-
   return (
     <>
       <Suspense fallback={<div></div>}>

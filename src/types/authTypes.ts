@@ -5,6 +5,5 @@ export type userType = {
 } & {
   id: string;
   username: string;
-  role: string;
   verified: string;
 };

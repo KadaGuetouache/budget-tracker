@@ -7,7 +7,31 @@ import { isPasswordValid } from "@/lib/hash";
 
 import {
   NextAuthOptions,
+  type DefaultSession,
+  type DefaultUser,
 } from "next-auth";
+
+/**
+ * make sure to update this section to avoid issues typescript errors throught the whole application
+ * fields id, role, and active are fields that exits in Database but don't get return throught token in jwt function below
+ * so they need to be added in here
+ * */
+declare module "next-auth" {
+  interface Session extends DefaultSession {
+    user: DefaultSession["user"] & {
+      id: string;
+      username: string;
+      verified: string;
+    };
+  }
+
+  interface User extends DefaultUser {
+    id: string;
+    username: string;
+    verified: string;
+  }
+}
+
 
 export const AuthOptions: NextAuthOptions = {
   providers: [

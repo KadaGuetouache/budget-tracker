@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import SessionWrapper from "@/components/SessionWrapper";
 import { Toaster } from "@/components/ui/toaster";
 import NextTopLoader from "nextjs-toploader";
+import RootProviders from "@/components/providers/RootProviders";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,18 +24,14 @@ export default function RootLayout({
     <SessionWrapper>
       <html lang="en">
         <body className={inter.className}>
+          <Sonner richColors position="bottom-right" />
           <NextTopLoader color="#ffbf00" showSpinner={false} />
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
+          <RootProviders>
             <Navbar />
             <main className="flex-justify-center items-center h-screen">
               {children}
             </main>
-          </ThemeProvider>
+          </RootProviders>
           <Toaster />
         </body>
       </html>
