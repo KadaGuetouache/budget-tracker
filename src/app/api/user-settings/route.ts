@@ -6,12 +6,15 @@ import { revalidatePath } from "next/cache";
 
 export async function GET(request: Request) {
   const session = await getServerSession(AuthOptions)
-  const user = session?.user
 
-  if (!user) {
+  if (!session) {
     redirect("/login")
   }
 
+  const user = session?.user
+
+  //BUG: try fixing this issue
+  //and check for tables relations with user 
   let userSettings = await prisma.userSettings.findUnique({ where: { userId: user?.id } })
 
   if (!userSettings) {

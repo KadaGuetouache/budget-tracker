@@ -5,7 +5,7 @@ const page = async () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="p-8 shadow-md shadow-blue-600 rounded-md w-[80%] lg:w-[50%] border">
+      <div className="p-8 shadow-md shadow-orange-500 rounded-md w-[80%] lg:w-[50%] border">
         <h2 className="text-3xl font-bold text-center mb-4">Login</h2>
         <div className="flex flex-col-reverse md:flex-row ustify-start items-center">
           <Oauth />

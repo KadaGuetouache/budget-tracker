@@ -93,16 +93,4 @@ CREATE UNIQUE INDEX "Token_token_key" ON "Token"("token");
 CREATE UNIQUE INDEX "UserSettings_userId_key" ON "UserSettings"("userId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Category_userId_key" ON "Category"("userId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Category_name_userId_type_key" ON "Category"("name", "userId", "type");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Transaction_userId_key" ON "Transaction"("userId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "MonthHistory_userId_key" ON "MonthHistory"("userId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "YearHistory_userId_key" ON "YearHistory"("userId");

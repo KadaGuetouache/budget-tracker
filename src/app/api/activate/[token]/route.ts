@@ -35,6 +35,8 @@ export async function GET(
 
     await prisma.user.update({ where: { id: userToken?.userId as string }, data: { verified: true } })
 
+    await prisma.token.delete({ where: { userId: userToken?.userId } })
+
     // This will set URL with active=true and header will update state
     const verified = "true";
 

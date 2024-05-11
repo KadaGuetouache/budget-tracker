@@ -31,3 +31,17 @@ export function checkIfTokenIsValide(timestamp: Date): Boolean {
 export function activeLink(pathname: string, path: string): string {
   return path === pathname ? "border-b border-white" : "text-muted-foreground"
 }
+
+export function DateToUTCDate(date: Date) {
+  return new Date(
+    Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDay(),
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+      date.getMilliseconds()
+    )
+  )
+}

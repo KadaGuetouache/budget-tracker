@@ -250,3 +250,111 @@ export const MenuIcon = ({ className = "w-5 h-5" }: classNameProps) => {
     </svg>
   );
 };
+
+export const PlusSquareIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <g>
+        <path d="M18.438 20.938H5.563a2.5 2.5 0 01-2.5-2.5V5.564a2.5 2.5 0 012.5-2.5h12.875a2.5 2.5 0 012.5 2.5v12.874a2.5 2.5 0 01-2.5 2.5zM5.563 4.064a1.5 1.5 0 00-1.5 1.5v12.874a1.5 1.5 0 001.5 1.5h12.875a1.5 1.5 0 001.5-1.5V5.564a1.5 1.5 0 00-1.5-1.5z"></path>
+        <path d="M15 12.5h-2.5V15a.5.5 0 01-1 0v-2.5H9a.5.5 0 010-1h2.5V9a.5.5 0 011 0v2.5H15a.5.5 0 010 1z"></path>
+      </g>
+    </svg>
+  );
+};
+
+export const CirlceOffIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M2 2l20 20M8.35 2.69A10 10 0 0121.3 15.65M19.08 19.08A10 10 0 114.92 4.92"></path>
+    </svg>
+  );
+};
+
+export const CheckIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 448 512"
+      className={className}
+    >
+      <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"></path>
+    </svg>
+  );
+};
+
+export const ChevronUpDownIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M7 15l5 5 5-5M7 9l5-5 5 5"></path>
+    </svg>
+  );
+};
+
+export const CalendarIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 512 512"
+      className={className}
+    >
+      <rect
+        width="416"
+        height="384"
+        x="48"
+        y="80"
+        fill="none"
+        strokeLinejoin="round"
+        strokeWidth="32"
+        rx="48"
+      ></rect>
+      <path
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
+        d="M128 48v32m256-32v32m80 80H48"
+      ></path>
+    </svg>
+  );
+};

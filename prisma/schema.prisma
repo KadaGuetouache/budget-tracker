@@ -22,12 +22,12 @@ model User {
   createdAt DateTime @default(now())
 
   // Relation to Token model (one-to-many)
-  tokens       Token?
+  tokens       Token[]
   UserSettings UserSettings?
-  Category     Category?
-  Transaction  Transaction?
-  MonthHistory MonthHistory?
-  YearHistory  YearHistory?
+  Category     Category[]
+  Transaction  Transaction[]
+  MonthHistory MonthHistory[]
+  YearHistory  YearHistory[]
 }
 
 // Define the Token model
@@ -54,7 +54,7 @@ model Category {
   id        String @id() @default(cuid())
   createdAt DateTime @default(now())
   name      String
-  userId    String   @unique
+  userId    String   
   icon      String
   type      String   @default("income")
   user      User?     @relation(fields: [userId], references: [id])
@@ -71,7 +71,7 @@ model Transaction {
   amount      Float
   description String
   date        DateTime
-  userId      String   @unique
+  userId      String   
   type        String   @default("income")
 
   category     String
@@ -81,7 +81,7 @@ model Transaction {
 
 // Define Month history model
 model MonthHistory {
-  userId  String  @unique
+  userId  String  
   day     Int
   month   Int
   year    Int
@@ -95,7 +95,7 @@ model MonthHistory {
 
 // Define Year history model
 model YearHistory {
-  userId  String @unique
+  userId  String 
   month   Int
   year    Int
   income  Float

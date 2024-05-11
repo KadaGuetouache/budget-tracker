@@ -19,6 +19,7 @@ export async function UpdateUserCurrency(currency: string) {
     redirect("/login")
   }
 
+  //BUG: cannot update an empty record!
   const userSettings = await prisma.userSettings.update({
     where: {
       userId: session?.user?.id
