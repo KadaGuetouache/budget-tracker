@@ -358,3 +358,47 @@ export const CalendarIcon = ({ className = "w-5 h-5" }: classNameProps) => {
     </svg>
   );
 };
+
+export const ChevronDownIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 20 20"
+      className={className}
+    >
+      <path
+        fillRule="evenodd"
+        stroke="none"
+        d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  );
+};
+
+export const ChevronUpIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 20 20"
+      className={className}
+    >
+      <path
+        fillRule="evenodd"
+        stroke="none"
+        d="M9.47 6.47a.75.75 0 011.06 0l4.25 4.25a.75.75 0 11-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 01-1.06-1.06l4.25-4.25z"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  );
+};

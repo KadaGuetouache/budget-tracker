@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import prisma from '@/lib/prisma'
 import { Button } from '@/components/ui/button'
 import CreateTransactionDialog from './_components/CreateTransactionDialog'
+import Overview from './_components/Overview'
 
 const page = async () => {
   const session = await getServerSession(AuthOptions)
@@ -12,7 +13,6 @@ const page = async () => {
   !session && redirect("/login");
 
   const user = session?.user
-  console.log(user)
 
   const userSettings = await prisma.userSettings.findUnique({
     where: {
@@ -39,6 +39,7 @@ const page = async () => {
           </div>
         </div>
       </div>
+      <Overview userSettings={userSettings} />
     </div>
   )
 }
