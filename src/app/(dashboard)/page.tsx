@@ -12,6 +12,7 @@ const page = async () => {
   !session && redirect("/login");
 
   const user = session?.user
+  console.log(user)
 
   const userSettings = await prisma.userSettings.findUnique({
     where: {

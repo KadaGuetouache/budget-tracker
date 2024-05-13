@@ -10,6 +10,7 @@ import {
   type DefaultSession,
   type DefaultUser,
 } from "next-auth";
+import { userType } from "@/types/authTypes";
 
 /**
  * make sure to update this section to avoid issues typescript errors throught the whole application
@@ -98,7 +99,11 @@ export const AuthOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       // Send properties to the client, like an access_token and user id from a provider.
-      session.user = token.user as any;
+      const currentUser = token?.user as any
+
+      const { password, ...currentUserWithtoutPassword } = currentUser
+
+      session.user = currentUserWithtoutPassword;
       return session;
     },
   },
@@ -107,6 +112,6 @@ export const AuthOptions: NextAuthOptions = {
   },
   session: {
     strategy: "jwt",
-    maxAge: 48 * 60 * 60, // 2 Days
+    maxAge: 60 * 60, // 2 Days
   },
 };
