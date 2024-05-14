@@ -402,3 +402,77 @@ export const ChevronUpIcon = ({ className = "w-5 h-5" }: classNameProps) => {
     </svg>
   );
 };
+
+export const TrendingUpIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M22 7L13.5 15.5 8.5 10.5 2 17"></path>
+      <path d="M16 7L22 7 22 13"></path>
+    </svg>
+  );
+};
+
+export const TrendingDownIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M22 17L13.5 8.5 8.5 13.5 2 7"></path>
+      <path d="M16 17L22 17 22 11"></path>
+    </svg>
+  );
+};
+
+export const WalletIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 512 512"
+      className={className}
+    >
+      <rect
+        width="416"
+        height="288"
+        x="48"
+        y="144"
+        fill="none"
+        strokeLinejoin="round"
+        strokeWidth="32"
+        rx="48"
+        ry="48"
+      ></rect>
+      <path
+        fill="none"
+        strokeLinejoin="round"
+        strokeWidth="32"
+        d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49"
+      ></path>
+      <path d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z"></path>
+    </svg>
+  );
+};

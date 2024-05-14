@@ -162,7 +162,7 @@ const CreateTransactionDialog = ({ trigger, type }: Props) => {
                       </PopoverContent>
                     </Popover>
                     <FormDescription>
-                      Select a date for
+                      Select a date
                     </FormDescription>
                     <FormMessage />
                   </FormItem>

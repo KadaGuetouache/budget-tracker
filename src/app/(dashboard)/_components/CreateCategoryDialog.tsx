@@ -81,7 +81,7 @@ const CreateCategoryDialog = ({ type, successCallback }: Props) => {
           <DialogDescription>Categories are used to group your transaction</DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
               name="name"
@@ -109,7 +109,7 @@ const CreateCategoryDialog = ({ type, successCallback }: Props) => {
                   </FormLabel>
                   <FormControl>
                     <Popover>
-                      <PopoverTrigger>
+                      <PopoverTrigger asChild>
                         <Button variant="outline" className="h-[100px] w-full">
                           {form.watch("icon") ? (
                             <div className="flex flex-col items-center gap-2">

@@ -13,13 +13,6 @@ import {
   FormDescription,
   FormMessage,
 } from "./ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import axios from "axios";
@@ -29,8 +22,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { ClosedEyeIcon, EyeIcon, SpinnerIcon } from "@/constants/icons";
 import { registerForm, registerFormType } from "@/types/formTypes";
-import { hashPassword } from "@/lib/hash";
-import { getURL } from "@/lib/helpers";
 
 const RegisterForm = ({ className }: { className: string }) => {
   const [pending, startTransition] = useTransition()

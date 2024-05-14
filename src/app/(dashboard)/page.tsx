@@ -27,7 +27,7 @@ const page = async () => {
       <div className="border-b bg-card">
         <div className="container flex flex-wrap items-center justify-between gap-6 py-8">
           <p className="text-3xl font-bold capitalize">
-            {user?.name} 👋
+            Hello, {user?.name?.split(" ")[0]} 👋
           </p>
           <div className="flex items-cener gap-3">
             <CreateTransactionDialog trigger={
