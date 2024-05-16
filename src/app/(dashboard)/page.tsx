@@ -6,6 +6,7 @@ import prisma from '@/lib/prisma'
 import { Button } from '@/components/ui/button'
 import CreateTransactionDialog from './_components/CreateTransactionDialog'
 import Overview from './_components/Overview'
+import History from './_components/History'
 
 const page = async () => {
   const session = await getServerSession(AuthOptions)
@@ -40,6 +41,7 @@ const page = async () => {
         </div>
       </div>
       <Overview userSettings={userSettings} />
+      <History userSettings={userSettings} />
     </div>
   )
 }

@@ -9,7 +9,7 @@ import { GetCategoriesStatsResponseType } from '@/app/api/stats/categories/route
 import { TransactionType } from '@/lib/types'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Progress } from '@/components/ui/progress'
+import CategoriesStatsSingleItem from './CategoriesStatsSingleItem'
 
 interface Props {
   userSettings: UserSettings | null,
@@ -74,25 +74,9 @@ function CategoriesCard({ data, type, formatter }: {
         {filteredData.length > 0 && (
           <ScrollArea className="h-60 w-full px-4">
             <div className="flex w-full flex-col gap-4 p-4">
-              {filteredData.map((item: any) => {
-                const amount = item._sum.amount || 0
-                const percentage = (amount * 100) / (total || amount)
-
-                return (
-                  <div key={item.category} className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center text-gray-400">
-                        {item.categoryIcon} {item.category}
-                        <span className="ml-2 text-xs text-muted-foreground">
-                          ({percentage.toFixed(0)}%)
-                        </span>
-                      </span>
-                      <span className="text-sm text-gray-400">{formatter.format(amount)}</span>
-                    </div>
-                    <Progress value={percentage} indicator={type === "income" ? "bg-emerald-500" : "bg-red-500"} />
-                  </div>
-                )
-              })}
+              {filteredData.map((item: any) => (
+                <CategoriesStatsSingleItem type={type} key={item.category} item={item} total={total} formatter={formatter} />
+              ))}
             </div>
           </ScrollArea>
         )}
