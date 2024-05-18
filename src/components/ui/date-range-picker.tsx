@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import React, { type FC, useState, useEffect, useRef } from 'react'
@@ -324,7 +325,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
         openedRangeRef.current = range
         openedRangeCompareRef.current = rangeCompare
       }
-    }, [isOpen])
+    }, [isOpen, range, rangeCompare])
 
     return (
       <Popover

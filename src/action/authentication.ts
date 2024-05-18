@@ -16,8 +16,8 @@ export async function ReSendVerificationEmail(email: string) {
     // });
     //
     const token = await prisma.token.create({ data: { userId: user.id, token: tokenGenerator() } })
-
-    sendVerificationEmail(user, token?.token);
+    const url = process.env.NEXTAUTH_URL || ""
+    sendVerificationEmail(user, token?.token, url);
   }
   return;
 }
