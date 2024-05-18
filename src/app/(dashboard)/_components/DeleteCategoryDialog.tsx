@@ -44,8 +44,8 @@ const DeleteCategoryDialog = ({ category, trigger }: Props) => {
           <AlertDialogAction onClick={() => {
             sonner.loading("Deleting category ...", { id: categoryIdentifier })
             deleteMutation.mutate({
-              name: category.name,
-              type: category.type as TransactionType
+              name: category?.name,
+              type: category?.type as TransactionType
             })
           }}>Continue</AlertDialogAction>
         </AlertDialogFooter>

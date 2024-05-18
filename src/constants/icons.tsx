@@ -271,6 +271,26 @@ export const PlusSquareIcon = ({ className = "w-5 h-5" }: classNameProps) => {
   );
 };
 
+export const PlusCircleIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <g>
+        <path d="M15 12.5h-2.5V15a.5.5 0 01-1 0v-2.5H9a.5.5 0 010-1h2.5V9a.5.5 0 011 0v2.5H15a.5.5 0 010 1z"></path>
+        <path d="M12 21.932A9.934 9.934 0 1121.932 12 9.944 9.944 0 0112 21.932zm0-18.867A8.934 8.934 0 1020.932 12 8.944 8.944 0 0012 3.065z"></path>
+      </g>
+    </svg>
+  );
+};
+
 export const CirlceOffIcon = ({ className = "w-5 h-5" }: classNameProps) => {
   return (
     <svg
@@ -495,6 +515,83 @@ export const TrashIcon = ({ className = "w-5 h-5" }: classNameProps) => {
         d="M17 6V5a2 2 0 00-2-2H9a2 2 0 00-2 2v1H4a1 1 0 000 2h1v11a3 3 0 003 3h8a3 3 0 003-3V8h1a1 1 0 100-2h-3zm-2-1H9v1h6V5zm2 3H7v11a1 1 0 001 1h8a1 1 0 001-1V8z"
         clipRule="evenodd"
       ></path>
+    </svg>
+  );
+};
+
+export const ArrowUpIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M18.655 10.405a.75.75 0 01-1.06 0l-4.97-4.97v14.44a.75.75 0 01-1.5 0V5.435l-4.97 4.97a.749.749 0 01-1.275-.326.749.749 0 01.215-.734l6.25-6.25a.75.75 0 011.06 0l6.25 6.25a.75.75 0 010 1.06z"></path>
+    </svg>
+  );
+};
+
+export const ArrowDownIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M4.97 13.22a.75.75 0 011.06 0L11 18.19V3.75a.75.75 0 011.5 0v14.44l4.97-4.97a.749.749 0 011.275.326.749.749 0 01-.215.734l-6.25 6.25a.75.75 0 01-1.06 0l-6.25-6.25a.75.75 0 010-1.06z"></path>
+    </svg>
+  );
+};
+
+export const MixerHorizontIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 15 15"
+      className={className}
+    >
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M5.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM3 5c.017 0 .033 0 .05-.002a2.5 2.5 0 004.9 0A.507.507 0 008 5h5.5a.5.5 0 000-1H8c-.017 0-.033 0-.05.002a2.5 2.5 0 00-4.9 0A.507.507 0 003 4H1.5a.5.5 0 000 1H3zm8.95 5.998a2.5 2.5 0 01-4.9 0A.507.507 0 017 11H1.5a.5.5 0 010-1H7c.017 0 .033 0 .05.002a2.5 2.5 0 014.9 0A.506.506 0 0112 10h1.5a.5.5 0 010 1H12c-.017 0-.033 0-.05-.002zM8 10.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  );
+};
+
+export const DownloadIcon = ({ className = "w-5 h-5" }: classNameProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+      <path d="M7 10L12 15 17 10"></path>
+      <path d="M12 15L12 3"></path>
     </svg>
   );
 };
