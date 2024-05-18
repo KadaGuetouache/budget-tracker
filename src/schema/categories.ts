@@ -13,4 +13,4 @@ export const DeleteCategorySchema = z.object({
   type: z.enum(["income", "expense"])
 })
 
-export type DeleteCategorySchemaType = z.infer<typeof CreateCategorySchema>;
+export type DeleteCategorySchemaType = z.infer<typeof DeleteCategorySchema>;

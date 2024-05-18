@@ -32,7 +32,7 @@ const CategoryPicker = ({ type, onChange }: Props) => {
     onChange(value)
   }, [onChange, value])
 
-  const categoriesQuery = useQuery<Category>({
+  const categoriesQuery = useQuery<Category[]>({
     queryKey: ["categories", type],
     queryFn: () => fetch(`/api/categories?type=${type}`).then((res) => res.json())
   })
