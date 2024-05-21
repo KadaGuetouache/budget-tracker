@@ -32,7 +32,7 @@ const items = [
 
 const Oauth = () => {
   return (
-    <div className="flex md:flex-col justify-around items-center h-[200px] w-[400px] md:w-[auto]">
+    <div className="flex md:flex-col justify-around items-center h-[200px] md:w-[auto]">
       {items.map((item, index) => (
         <Button key={index}
           onClick={() => signIn(item.action)}
