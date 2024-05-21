@@ -4,16 +4,14 @@ import Oauth from "@/components/Oauth";
 const page = async () => {
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="p-8 shadow-md shadow-orange-500 rounded-md w-[80%] lg:w-[50%] border">
-        <h2 className="text-3xl font-bold text-center mb-4">Login</h2>
-        <div className="flex flex-col-reverse md:flex-row ustify-start items-center">
-          <Oauth />
-          <div className="hidden md:block w-[1px] mx-4 h-full" />
-          <LoginForm />
-        </div>
+    <section className="flex justify-center items-center h-[80%]">
+      <div className="grid grid-cols-1 border md:grid-cols-2 gap-y-4 gap-x-6 p-8 shadow-md shadow-orange-500 rounded-md w-[80%] lg:w-[60%] xl:w-[50%] max-w-[900px]">
+        <h2 className="text-3xl font-bold">Create an account</h2>
+        <LoginForm className="row-span-2 h-full" />
+        <div className="h-[1px] bg-white md:hidden"></div>
+        <Oauth />
       </div>
-    </div>
+    </section>
   );
 };
 

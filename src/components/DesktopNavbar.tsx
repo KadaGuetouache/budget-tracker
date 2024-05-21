@@ -1,9 +1,13 @@
+'use client'
+
+import { useSession } from "next-auth/react";
 import NavLinks from "./NavLinks";
 
-const DesktopNavbar = async ({ status }: { status: boolean }) => {
+const DesktopNavbar = () => {
+  const status = useSession()?.status
   return (
     <nav className="hidden md:block gap-2">
-      <NavLinks status={status ? "authenticated" : "unauthenticated"} />
+      <NavLinks status={status} />
     </nav>
   )
 }

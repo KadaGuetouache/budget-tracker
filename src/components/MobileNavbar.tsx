@@ -9,8 +9,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import SignOutBtn from "./SignOutBtn";
 import Logo from "./Logo";
+import { useSession } from "next-auth/react";
 
-const MobileNavbar = ({ status }: { status: boolean }) => {
+const MobileNavbar = () => {
+  const status = useSession()?.status
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -29,19 +31,19 @@ const MobileNavbar = ({ status }: { status: boolean }) => {
             </div>
             <nav>
               <ul>
-                {!status && authItems.map((item, index) => (
+                {status === "unauthenticated" && authItems.map((item, index) => (
                   <li key={index} className="py-6">
                     <Link href={item.path} className={cn(buttonVariants({ variant: "ghost" }), "w-full")} onClick={() => setIsOpen(prev => !prev)}>{item.label}</Link>
                   </li>
                 ))}
-                {status &&
+                {status === "authenticated" &&
                   items.map((item, index) => (
                     <li key={index} className="py-6">
                       <Link href={item.path} className={cn(buttonVariants({ variant: "ghost" }), "w-full")} onClick={() => setIsOpen(prev => !prev)}>{item.label}</Link>
                     </li>
                   ))
                 }
-                {status && <li className="py-6"><SignOutBtn className="w-full" /></li>}
+                {status === "authenticated" && <li className="py-6"><SignOutBtn className="w-full" /></li>}
               </ul>
             </nav>
           </SheetContent>

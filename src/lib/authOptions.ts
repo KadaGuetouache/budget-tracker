@@ -59,7 +59,7 @@ export const AuthOptions: NextAuthOptions = {
         const user = await prisma.user.findFirst({ where: { email: credentials?.email } })
         // check if user exits
         if (!user)
-          throw new Error("Account don't exits please check your email");
+          throw new Error("Hmm, couldn't find an account with that email. Maybe you meant a different address!");
 
         // check if password is valid
         const isPasswordMatch = await isPasswordValid(
@@ -67,10 +67,10 @@ export const AuthOptions: NextAuthOptions = {
           user.password,
         );
 
-        if (!isPasswordMatch) throw new Error("Wrong password!");
+        if (!isPasswordMatch) throw new Error("We think you might have gotten a typo in there. Double-check your password and give it another shot!");
 
         if (user.verified !== true) {
-          throw new Error("Account not verified");
+          throw new Error("Looks like your account verification is still pending. Don't worry, we just sent you a fresh verification email!");
         }
 
         return user;

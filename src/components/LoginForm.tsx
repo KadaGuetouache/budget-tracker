@@ -27,7 +27,7 @@ import { passwordForgottenTypes } from "@/types/formTypes";
 import { ReSendVerificationEmail } from "@/action/authentication";
 import { getURL } from "@/lib/helpers";
 import { useSearchParams } from "next/navigation";
-const LoginForm = () => {
+const LoginForm = ({className}: {className: string}) => {
   const tokenInvalid = useSearchParams().get("invalid")
   const [resendTokenDialog, setResendTokenDialog] = useState<boolean>(false)
   const [pending, startTransition] = useTransition();
@@ -140,7 +140,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex-1 w-full">
+    <div className={className}>
       <Dialog open={resendTokenDialog} onOpenChange={() => setResendTokenDialog(!resendTokenDialog)}>
         <DialogContent>
           <Form {...passwordForgottenForm}>
