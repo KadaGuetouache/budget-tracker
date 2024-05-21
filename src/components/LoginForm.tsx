@@ -26,10 +26,10 @@ import { loginForm, resendTokenFormTypes } from "@/types/formTypes";
 import { passwordForgottenTypes } from "@/types/formTypes";
 import { ReSendVerificationEmail } from "@/action/authentication";
 import { getURL } from "@/lib/helpers";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 const LoginForm = ({ className }: { className: string }) => {
 
-  const tokenInvalid = useSearchParams().get("invalid")
+  // const tokenInvalid = useSearchParams().get("invalid")
 
   const [resendTokenDialog, setResendTokenDialog] = useState<boolean>(false)
   const [pending, startTransition] = useTransition();
@@ -43,14 +43,14 @@ const LoginForm = ({ className }: { className: string }) => {
     },
   });
 
-  if (!resendTokenDialog && tokenInvalid) {
-    toast({
-      title: "Invalid Token",
-      description: "Your token has expired. it's time to generate new token.",
-      variant: "destructive",
-      action: <ToastAction altText="Re-send" onClick={() => setResendTokenDialog(true)}>Re-send</ToastAction>
-    })
-  }
+  // if (!resendTokenDialog && tokenInvalid) {
+  //   toast({
+  //     title: "Invalid Token",
+  //     description: "Your token has expired. it's time to generate new token.",
+  //     variant: "destructive",
+  //     action: <ToastAction altText="Re-send" onClick={() => setResendTokenDialog(true)}>Re-send</ToastAction>
+  //   })
+  // }
 
   const onResendVerifyToken = async (values: z.infer<typeof resendTokenFormTypes>) => {
     try {
