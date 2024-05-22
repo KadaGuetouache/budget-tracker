@@ -5,8 +5,11 @@ import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
+import { getServerSession } from "next-auth";
+import { AuthOptions } from "@/lib/authOptions";
 
 const Navbar = async () => {
+  const session = await getServerSession(AuthOptions)
 
   return (
     <>
@@ -17,8 +20,8 @@ const Navbar = async () => {
         <Logo />
         <div className="flex justify-center items-center">
           <ThemeToggle className="md:mr-4" />
-          <DesktopNavbar />
-          <MobileNavbar />
+          <DesktopNavbar status={session ? true : false} />
+          <MobileNavbar status={session ? true : false} />
         </div>
       </header >
     </>

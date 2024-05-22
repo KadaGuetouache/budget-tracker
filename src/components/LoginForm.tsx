@@ -135,7 +135,8 @@ const LoginForm = ({ className }: { className: string }) => {
           variant: "destructive",
         });
       } else {
-        router.push("/wizard");
+        // router.push("/wizard");
+        window.location.replace("/wizard")
       }
     });
 
