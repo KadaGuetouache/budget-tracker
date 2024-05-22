@@ -11,8 +11,7 @@ import SignOutBtn from "./SignOutBtn";
 import Logo from "./Logo";
 import { useSession } from "next-auth/react";
 
-const MobileNavbar = () => {
-  const status = useSession()?.status
+const MobileNavbar = ({ status }: { status: boolean }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -31,19 +30,19 @@ const MobileNavbar = () => {
             </div>
             <nav>
               <ul>
-                {status === "unauthenticated" && authItems.map((item, index) => (
+                {!status && authItems.map((item, index) => (
                   <li key={index} className="py-6">
                     <Link href={item.path} className={cn(buttonVariants({ variant: "ghost" }), "w-full")} onClick={() => setIsOpen(prev => !prev)}>{item.label}</Link>
                   </li>
                 ))}
-                {status === "authenticated" &&
+                {status &&
                   items.map((item, index) => (
                     <li key={index} className="py-6">
                       <Link href={item.path} className={cn(buttonVariants({ variant: "ghost" }), "w-full")} onClick={() => setIsOpen(prev => !prev)}>{item.label}</Link>
                     </li>
                   ))
                 }
-                {status === "authenticated" && <li className="py-6"><SignOutBtn className="w-full" /></li>}
+                {status && <li className="py-6"><SignOutBtn className="w-full" /></li>}
               </ul>
             </nav>
           </SheetContent>
