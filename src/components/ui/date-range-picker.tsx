@@ -1,5 +1,4 @@
 /* eslint-disable max-lines */
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import React, { type FC, useState, useEffect, useRef } from 'react'
@@ -304,7 +303,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
       >
         <>
           <span className={cn('pr-2 opacity-0', isSelected && 'opacity-70')}>
-            <CheckIcon className="w-4 h-4" />
+            <CheckIcon width={18} height={18} />
           </span>
           {label}
         </>
@@ -325,7 +324,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
         openedRangeRef.current = range
         openedRangeCompareRef.current = rangeCompare
       }
-    }, [isOpen, range, rangeCompare])
+    }, [isOpen])
 
     return (
       <Popover
@@ -357,7 +356,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
               )}
             </div>
             <div className="pl-1 opacity-60 -mr-2 scale-125">
-              {isOpen ? (<ChevronUpIcon className="w-10" />) : (<ChevronDownIcon className="w-10" />)}
+              {isOpen ? (<ChevronUpIcon width={24} />) : (<ChevronDownIcon width={24} />)}
             </div>
           </Button>
         </PopoverTrigger>
