@@ -54,7 +54,7 @@ export const AuthOptions: NextAuthOptions = {
         password: {},
       },
 
-      //@ts-ignore
+      //@ts-expect-error expected error
       async authorize(credentials) {
         const user = await prisma.user.findFirst({ where: { email: credentials?.email } })
         // check if user exits
@@ -93,15 +93,18 @@ export const AuthOptions: NextAuthOptions = {
         }
       }
 
-      newUser && (token.user = newUser);
+      if (newUser){
+        token.user = newUser
+      };
 
       return token;
     },
     async session({ session, token }) {
       // Send properties to the client, like an access_token and user id from a provider.
-      const currentUser = token?.user as any
-
-      const { password, ...currentUserWithtoutPassword } = currentUser
+      const currentUser = token?.user as userType
+     
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { password: _, ...currentUserWithtoutPassword } = currentUser
 
       session.user = currentUserWithtoutPassword;
       return session;
